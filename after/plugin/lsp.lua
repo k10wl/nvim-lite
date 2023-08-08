@@ -28,12 +28,43 @@ lspconfig.eslint.setup({
 })
 
 lspconfig.gopls.setup({
-  on_attach = function()
-    vim.cmd([[autocmd BufWritePre <buffer> :silent %!golines]])  -- format with gofmt
-    vim.cmd([[autocmd BufWritePre <buffer> :silent %!gofumpt]])  -- format with gofmt
-    vim.cmd([[autocmd BufWritePre <buffer> :silent %!goimports]])  -- format with goimports
+  settings = {
+    gopls = {
+      analyses = {
+        nilness = true,
+        unusedparams = true,
+        unusedwrite = true,
+        useany = true,
+      },
+      experimentalPostfixCompletions = true,
+      gofumpt = true,
+      staticcheck = true,
+      usePlaceholders = true,
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      }
+    },
+  },
+  on_attach = function(_, bufrn)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufrn,
+      command = "lua FormatGo()",
+    })
     end,
 })
+
+function FormatGo()
+  os.execute("golines -w " .. vim.fn.expand('%'))
+  os.execute("gofumpt -w " .. vim.fn.expand('%'))
+  os.execute("goimports -w " .. vim.fn.expand('%'))
+  vim.cmd("edit!")
+end
 
 lsp.setup()
 
