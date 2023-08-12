@@ -51,20 +51,15 @@ lspconfig.gopls.setup({
       }
     },
   },
-  on_attach = function(_, bufrn)
+  on_attach = function(_, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufrn,
-      command = "lua FormatGo()",
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr })
+      end,
     })
-    end,
+  end
 })
-
-function FormatGo()
-  os.execute("golines -w " .. vim.fn.expand('%'))
-  os.execute("gofumpt -w " .. vim.fn.expand('%'))
-  os.execute("goimports -w " .. vim.fn.expand('%'))
-  vim.cmd("edit!")
-end
 
 lsp.setup()
 
