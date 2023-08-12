@@ -9,13 +9,8 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim", tag = "0.1.2",
     requires = { {"nvim-lua/plenary.nvim"} }
   }
-  use {
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function()
-      vim.cmd("colorscheme catppuccin")
-    end
-  }
+  use { "lewis6991/gitsigns.nvim"}
+  use{ "tpope/vim-fugitive" }
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
@@ -35,10 +30,14 @@ return require("packer").startup(function(use)
     }
   }
 
-  use { "lewis6991/gitsigns.nvim"}
+  -- Visuals
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      vim.cmd("colorscheme catppuccin")
+    end
+  }
+  use { "xiyaowong/transparent.nvim" }
 
-
-  use{ "tpope/vim-fugitive" }
-
-  use { "hrsh7th/nvim-cmp" }
 end)
