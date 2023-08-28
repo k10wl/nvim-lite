@@ -16,7 +16,6 @@ lsp.ensure_installed({
   'tailwindcss',
   'eslint',
   'gopls',
-  'luau_lsp',
 })
 
 lspconfig.eslint.setup({
