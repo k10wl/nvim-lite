@@ -8,6 +8,3 @@ vim.keymap.set("n", "<leader>br", ":bd! | e#<CR>")
 
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', {noremap = true, silent = true})
-
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
