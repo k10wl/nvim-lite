@@ -39,9 +39,5 @@ return require("packer").startup(function(use)
     end
   }
   use { "xiyaowong/transparent.nvim" }
-
-  use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-}
+  use { "folke/zen-mode.nvim" }
 end)
