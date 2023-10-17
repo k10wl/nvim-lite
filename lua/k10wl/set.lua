@@ -29,6 +29,9 @@ vim.opt.colorcolumn = "80"
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
 vim.opt.wrap = true
 vim.opt.background = "dark"
 
