@@ -1,12 +1,15 @@
 local zen = require("zen-mode")
 
+
 zen.setup({
   window = {
     width = 86,
     options = {
       number = false,
       relativenumber = false,
-      colorcolumn = "0"
+      colorcolumn = "0",
+      cursorline = false,
+      cursorcolumn = false
     }
   },
   plugins = {
