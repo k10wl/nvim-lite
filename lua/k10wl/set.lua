@@ -34,3 +34,5 @@ vim.opt.cursorcolumn = true
 
 vim.opt.wrap = true
 vim.opt.background = "dark"
+
+vim.opt.laststatus = 3
