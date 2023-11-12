@@ -1,6 +1,5 @@
 local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
-local cmp = require('cmp')
 
 lsp.preset("recommended")
 
@@ -67,11 +66,3 @@ lspconfig.gopls.setup({
 })
 
 lsp.setup()
-
-cmp.setup({
-  mapping = {
-    -- `Enter` key to confirm completion
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
-  }
-})
-
