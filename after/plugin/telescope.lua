@@ -19,7 +19,6 @@ telescope.setup{
   defaults = {
     mappings = {
       i = {
-        ["<C-w>"] = actions.delete_buffer + actions.move_to_top,
         ["<C-u>"] = false,
         ["<C-s>"] = action_layout.toggle_preview,
       },
