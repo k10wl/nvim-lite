@@ -31,6 +31,8 @@ return require("packer").startup(function(use)
   }
 
 
+ use {"mbbill/undotree"}
+
  use {"hrsh7th/nvim-cmp"}
  use {"hrsh7th/cmp-nvim-lsp"}
  use {'neovim/nvim-lspconfig'}
