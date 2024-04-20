@@ -1,5 +1,8 @@
 require("oil").setup({
   default_file_explorer = false,
+  view_options = {
+    show_hidden = true,
+  },
   keymaps = {
     ["g?"] = "actions.show_help",
     ["<CR>"] = "actions.select",
