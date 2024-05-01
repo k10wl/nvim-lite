@@ -1,6 +1,5 @@
 local zen = require("zen-mode")
 
-
 zen.setup({
   window = {
     width = 86,
@@ -26,6 +25,6 @@ zen.setup({
   }
 })
 
-vim.keymap.set('n', '<leader>zm', zen.toggle, {})
+vim.keymap.set("n", "<leader>zm", zen.toggle, {})
 -- v for transparent gutters
-vim.cmd('set background=dark')
+vim.cmd("set background=dark")
