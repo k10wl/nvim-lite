@@ -16,9 +16,10 @@ conform.setup({
   formatters_by_ft = {
     lua = { "stylua" },
     go = { "gofmt" },
-    css = { { "prettier", "prettierd" } },
-    javascript = { { "prettier", "prettierd" } },
-    typescript = { { "prettier", "prettierd" } },
+    css = { { "eslint", "prettier", "prettierd" } },
+    javascript = { { "eslint", "prettier", "prettierd" } },
+    typescript = { { "eslint", "prettier", "prettierd" } },
+    typescriptreact = { { "eslint", "prettier", "prettierd" } },
   },
 })
 
