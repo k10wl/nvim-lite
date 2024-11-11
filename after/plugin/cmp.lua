@@ -98,9 +98,17 @@ cmp.setup.cmdline({ "/", "?" }, {
 
 cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(cmdline_mapping),
-    sources = cmp.config.sources({
-        { name = "async_path" }
-    }, {
-        { name = "cmdline" }
-    }),
+    sources = cmp.config.sources(
+        {
+            {
+                name = "async_path"
+            }
+        },
+        {
+            {
+                name = 'cmdline',
+                -- Do not show completion for '!' (wsl freeze fix)
+                keyword_pattern = [[\!\@<!\w*]]
+            },
+        }),
 })
