@@ -8,6 +8,7 @@ lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end , opts)
 end)
 
 lsp.ensure_installed({
