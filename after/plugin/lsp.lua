@@ -16,7 +16,12 @@ lsp.ensure_installed({
   'tailwindcss',
   'eslint',
   'gopls',
+  'html',
 })
+lsp.setup_servers({
+  'html',
+})
+
 
 lspconfig.eslint.setup({
   on_attach = function(_, bufnr)
