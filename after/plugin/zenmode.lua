@@ -18,7 +18,10 @@ zen.setup({
     },
     gitsigns = {
       enabled = true
-    }
+    },
+    options = {
+      laststatus = 0,
+    },
   }
 })
 
