@@ -19,10 +19,6 @@ return require("packer").startup(function(use)
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
-  use { "ThePrimeagen/harpoon" }
-
-  use { "mbbill/undotree" }
-
   use {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
@@ -41,14 +37,8 @@ return require("packer").startup(function(use)
 
   use { "lewis6991/gitsigns.nvim"}
 
-  use { "hrsh7th/nvim-cmp" }
 
-  use {
-    "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    config = function()
-      require("k10wl.dashboard")
-    end,
-    requires = {"nvim-tree/nvim-web-devicons"}
-  }
+  use{ "tpope/vim-fugitive" }
+
+  use { "hrsh7th/nvim-cmp" }
 end)

@@ -7,3 +7,5 @@ vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprev<CR>', {noremap = true, silent = 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+vim.keymap.set("n", "<leader>x", ":bd<CR>")
+
