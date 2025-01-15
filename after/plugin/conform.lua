@@ -14,10 +14,7 @@ conform.setup({
         }
     end,
     formatters_by_ft = {
-        sql = { "sql-formatter" },
-        c = { "clang-format" },
-        lua = { "stylua" },
-        go = { "golines", "gofmt" },
+        -- i hate how fucking JavaScript world handles formatting
         css = { "eslint", "prettier", "prettierd" },
         javascript = { "eslint", "prettier", "prettierd" },
         typescript = { "eslint", "prettier", "prettierd" },

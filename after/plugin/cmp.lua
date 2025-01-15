@@ -1,30 +1,6 @@
 local cmp = require "cmp"
-local luasnip = require "luasnip"
-luasnip.config.setup {}
 
 local insert_mapping = {
-    ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            local entry = cmp.get_selected_entry()
-            if not entry then
-                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            end
-            cmp.confirm()
-        else
-            fallback()
-        end
-    end, { "i", "s", "c", }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            local entry = cmp.get_selected_entry()
-            if not entry then
-                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            end
-            cmp.confirm()
-        else
-            fallback()
-        end
-    end, { "i", "s", "c", }),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -32,27 +8,10 @@ local insert_mapping = {
     ["<C-y>"] = cmp.mapping.confirm { select = true },
     ["<C-e>"] = cmp.mapping.confirm { select = true },
     ["<C-j>"] = cmp.mapping.confirm { select = true },
+    ["<C-m>"] = cmp.mapping.confirm { select = true },
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<C-Space>"] = cmp.mapping.complete {},
-
-    -- Think of <c-l> as moving to the right of your snippet expansion.
-    --  So if you have a snippet that"s like:
-    --  function $name($args)
-    --    $body
-    --  end
-    --
-    -- <c-l> will move you to the right of each of the expansion locations.
-    -- <c-h> is similar, except moving you backwards.
-    ["<C-l>"] = cmp.mapping(function()
-        if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-        end
-    end, { "i", "s" }),
-    ["<C-h>"] = cmp.mapping(function()
-        if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-        end
-    end, { "i", "s" }),
+    ["<esc>"] = cmp.mapping.abort(),
 }
 
 local cmdline_mapping = {
@@ -70,12 +29,9 @@ local cmdline_mapping = {
 }
 
 cmp.setup {
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
+    completion = {
+        completeopt = "menu,menuone,noinsert",
     },
-    completion = { completeopt = "menu,menuone,noinsert" },
 
     -- For an understanding of why these mappings were
     -- chosen, you will need to read `:help ins-completion`
@@ -84,7 +40,6 @@ cmp.setup {
     mapping = cmp.mapping.preset.insert(insert_mapping),
     sources = {
         { name = "nvim_lsp" },
-        { name = "luasnip" },
         { name = "async_path" },
     },
 }
@@ -94,23 +49,6 @@ cmp.setup.cmdline({ "/", "?" }, {
     sources = {
         { name = "buffer" }
     }
-})
-
-cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(cmdline_mapping),
-    sources = cmp.config.sources(
-        {
-            {
-                name = "async_path"
-            }
-        },
-        {
-            {
-                name = 'cmdline',
-                -- Do not show completion for '!' (wsl freeze fix)
-                keyword_pattern = [[\!\@<!\w*]]
-            },
-        }),
 })
 
 vim.api.nvim_create_user_command(
@@ -125,5 +63,7 @@ vim.api.nvim_create_user_command(
     function()
         cmp.suspend()() -- hack? idk, saw in source code
     end,
-    { desc = "Disable completion" }
+    { desc = "Enable completion" }
 )
+
+vim.cmd('CmpDisable')

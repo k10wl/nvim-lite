@@ -63,16 +63,7 @@ capabilities = vim.tbl_deep_extend(
 )
 
 local servers = {
-    -- required to comfortably configure nvim
-    lua_ls = {
-        settings = {
-            Lua = {
-                completion = {
-                    callSnippet = "Replace",
-                },
-            },
-        },
-    },
+    lua_ls = {}, -- make nvim configuring easier
 }
 
 require("mason").setup()
@@ -82,12 +73,11 @@ vim.list_extend(ensure_installed, {})
 require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
 require("mason-lspconfig").setup {
+    automatic_installation = ensure_installed,
+    ensure_installed = ensure_installed,
     handlers = {
         function(server_name)
             local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend(
                 "force", {}, capabilities, server.capabilities or {}
             )
