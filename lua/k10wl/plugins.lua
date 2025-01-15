@@ -16,17 +16,19 @@ local plugins = {
     "stevearc/oil.nvim",
     "mbbill/undotree",
 
-    { -- Theme
+    -- Visuals
+    {
         "catppuccin/nvim",
         lazy = false,
         priority = 1000,
     },
-    { -- Theme
+    {
         "xiyaowong/transparent.nvim",
         lazy = false,
         priority = 1000,
     },
     "folke/zen-mode.nvim",
+    "nvim-tree/nvim-web-devicons",
 
     { -- LSP
         "neovim/nvim-lspconfig",
