@@ -112,3 +112,18 @@ cmp.setup.cmdline(":", {
             },
         }),
 })
+
+vim.api.nvim_create_user_command(
+    "CmpDisable",
+    function()
+        cmp.suspend()
+    end,
+    { desc = "Disable completion" }
+)
+vim.api.nvim_create_user_command(
+    "CmpEnable",
+    function()
+        cmp.suspend()() -- hack? idk, saw in source code
+    end,
+    { desc = "Disable completion" }
+)
