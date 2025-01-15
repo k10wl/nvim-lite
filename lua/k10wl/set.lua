@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.cmd("set path+=**")
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
