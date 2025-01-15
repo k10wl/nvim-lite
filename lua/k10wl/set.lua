@@ -37,7 +37,9 @@ vim.opt.cursorcolumn = true
 vim.opt.wrap = true
 vim.opt.background = "dark"
 
-vim.opt.laststatus = 3 -- global status line
+vim.opt.laststatus = 1
+vim.opt.ruler = false
+vim.opt.showcmd = false
 
 vim.opt.listchars = "tab:⟶ ,trail:·,extends:>,precedes:<,nbsp:%,space:·,eol:↵"
 vim.opt.list = true
