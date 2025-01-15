@@ -34,5 +34,3 @@ vim.opt.cursorcolumn = true
 
 vim.opt.wrap = true
 vim.opt.background = "dark"
-
-vim.g.netrw_banner = false
