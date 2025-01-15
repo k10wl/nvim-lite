@@ -9,7 +9,8 @@ zen.setup({
       relativenumber = false,
       colorcolumn = "0",
       cursorline = false,
-      cursorcolumn = false
+      cursorcolumn = false,
+      list = false
     }
   },
   plugins = {
