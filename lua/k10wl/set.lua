@@ -35,4 +35,6 @@ vim.opt.cursorcolumn = true
 vim.opt.wrap = true
 vim.opt.background = "dark"
 
-vim.opt.laststatus = 3
+vim.opt.laststatus = 3 -- global status line
+
+vim.g.netrw_banner = false
