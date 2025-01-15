@@ -11,6 +11,11 @@ vim.keymap.set("n", "<leader>ps", function()
 end)
 
 telescope.setup {
+    pickers = {
+        colorscheme = {
+            enable_preview = true,
+        },
+    },
     defaults = {
         mappings = {
             i = {
