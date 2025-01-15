@@ -18,10 +18,10 @@ conform.setup({
         c = { "clang-format" },
         lua = { "stylua" },
         go = { "golines", "gofmt" },
-        css = { { "eslint", "prettier", "prettierd" } },
-        javascript = { { "eslint", "prettier", "prettierd" } },
-        typescript = { { "eslint", "prettier", "prettierd" } },
-        typescriptreact = { { "eslint", "prettier", "prettierd" } },
+        css = { "eslint", "prettier", "prettierd" },
+        javascript = { "eslint", "prettier", "prettierd" },
+        typescript = { "eslint", "prettier", "prettierd" },
+        typescriptreact = { "eslint", "prettier", "prettierd" },
     },
 })
 
