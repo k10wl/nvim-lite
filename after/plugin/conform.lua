@@ -14,7 +14,7 @@ conform.setup({
         }
     end,
     formatters_by_ft = {
-        sql = { "sqlfmt" },
+        sql = { "sql-formatter" },
         c = { "clang-format" },
         lua = { "stylua" },
         go = { "golines", "gofmt" },
