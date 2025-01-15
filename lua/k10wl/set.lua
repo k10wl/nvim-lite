@@ -41,3 +41,4 @@ vim.opt.laststatus = 3 -- global status line
 
 vim.opt.listchars = "tab:⟶ ,trail:·,extends:>,precedes:<,nbsp:%,space:·,eol:↵"
 vim.opt.list = true
+vim.cmd("let g:ftplugin_sql_omni_key = '<C-j>'")
