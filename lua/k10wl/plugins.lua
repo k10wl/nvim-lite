@@ -15,6 +15,15 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     "stevearc/oil.nvim",
     "mbbill/undotree",
+    {
+        'nativerv/cyrillic.nvim',
+        event = { 'VeryLazy' },
+        config = function()
+            require('cyrillic').setup({
+                no_cyrillic_abbrev = false, -- default
+            })
+        end,
+    },
 
     -- Visuals
     {
