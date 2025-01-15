@@ -1,12 +1,13 @@
 local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 lsp.preset("recommended")
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({buffer = bufnr})
+
+  vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 end)
 
 lsp.ensure_installed({
@@ -24,6 +25,14 @@ lspconfig.eslint.setup({
       command = "EslintFixAll",
     })
   end,
+})
+
+lspconfig.gopls.setup({
+  on_attach = function()
+    vim.cmd([[autocmd BufWritePre <buffer> :silent %!golines]])  -- format with gofmt
+    vim.cmd([[autocmd BufWritePre <buffer> :silent %!gofumpt]])  -- format with gofmt
+    vim.cmd([[autocmd BufWritePre <buffer> :silent %!goimports]])  -- format with goimports
+    end,
 })
 
 lsp.setup()
