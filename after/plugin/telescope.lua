@@ -7,20 +7,21 @@ vim.keymap.set("n", "<leader>pb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, {})
 vim.keymap.set("n", "<leader>ps", function()
-  builtin.grep_string({ search = vim.fn.input("Grep: ") })
+    builtin.grep_string({ search = vim.fn.input("Grep: ") })
 end)
 
-telescope.setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-u>"] = false,
-        ["<C-s>"] = action_layout.toggle_preview,
-      },
-      n = {
-        ["d"] = "delete_buffer",
-        ["<C-s>"] = action_layout.toggle_preview,
-      },
+telescope.setup {
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-u>"] = false,
+                ["<C-s>"] = action_layout.toggle_preview,
+                ["<C-d>"] = "delete_buffer",
+            },
+            n = {
+                ["dd"] = "delete_buffer",
+                ["<C-s>"] = action_layout.toggle_preview,
+            },
+        },
     },
-  },
 }
