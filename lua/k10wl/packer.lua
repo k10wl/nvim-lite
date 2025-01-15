@@ -52,4 +52,6 @@ return require("packer").startup(function(use)
   }
   use { "xiyaowong/transparent.nvim" }
   use { "folke/zen-mode.nvim" }
+
+  use { "stevearc/oil.nvim"  }
 end)
