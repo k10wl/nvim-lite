@@ -38,3 +38,6 @@ vim.opt.background = "dark"
 vim.opt.laststatus = 3 -- global status line
 
 vim.g.netrw_banner = false
+
+vim.opt.listchars = "tab:⟶\\ ,trail:·,extends:>,precedes:<,nbsp:%,space:·"
+vim.opt.list = true
