@@ -3,14 +3,28 @@ local luasnip = require "luasnip"
 luasnip.config.setup {}
 
 local insert_mapping = {
-    ["<Tab>"] = function()
+    ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            end
             cmp.confirm()
         else
-            cmp.mapping.select_next_item()
+            fallback()
         end
-    end,
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    end, { "i", "s", "c", }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            end
+            cmp.confirm()
+        else
+            fallback()
+        end
+    end, { "i", "s", "c", }),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
