@@ -44,7 +44,16 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   }
 
- use { "lewis6991/gitsigns.nvim"}
+  use { "lewis6991/gitsigns.nvim"}
 
- use { "hrsh7th/nvim-cmp" }
+  use { "hrsh7th/nvim-cmp" }
+
+  use {
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+    config = function()
+      require("k10wl.dashboard")
+    end,
+    requires = {"nvim-tree/nvim-web-devicons"}
+  }
 end)
