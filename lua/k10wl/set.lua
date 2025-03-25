@@ -32,9 +32,6 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "term://*", command = "setlocal nospell" })
 
--- vim.opt.cursorline = true
--- vim.opt.cursorcolumn = true
-
 vim.opt.wrap = true
 
 vim.opt.laststatus = 1
@@ -43,4 +40,6 @@ vim.opt.showcmd = false
 
 vim.opt.listchars = "tab:⟶ ,trail:·,extends:>,precedes:<,nbsp:%,space:·,eol:↵"
 vim.opt.list = true
+vim.cmd("highlight NonText guifg=bg")
+
 vim.cmd("let g:ftplugin_sql_omni_key = '<C-j>'")
