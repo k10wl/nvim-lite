@@ -15,6 +15,7 @@ local insert_mapping = {
 }
 
 local cmdline_mapping = {
+    ["<C-Space>"] = cmp.mapping.complete {},
     ["<Tab>"] = cmp.mapping.select_next_item(),
     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     ["<C-e>"] = {
@@ -28,7 +29,7 @@ local cmdline_mapping = {
     }
 }
 
-cmp.setup {
+cmp.setup({
     completion = {
         completeopt = "menu,menuone,noinsert",
     },
@@ -42,7 +43,7 @@ cmp.setup {
         { name = "nvim_lsp" },
         { name = "async_path" },
     },
-}
+})
 
 cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(cmdline_mapping),
@@ -58,6 +59,7 @@ vim.api.nvim_create_user_command(
     end,
     { desc = "Disable completion" }
 )
+
 vim.api.nvim_create_user_command(
     "CmpEnable",
     function()
