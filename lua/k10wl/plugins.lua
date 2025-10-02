@@ -1,12 +1,28 @@
 local plugins = {
     {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({})
-        end,
+        'ggml-org/llama.vim', -- check README.md for dependencies
+        init = function()
+            vim.g.llama_config = {
+                show_info = false,
+                keymap_trigger = "<C-f>",
+                keymap_accept_full = "<Tab>",
+                keymap_accept_line = "<C-e>",
+                keymap_accept_word = "<C-j>",
+            }
+            vim.api.nvim_set_hl(0, "llama_hl_hint", { fg = "#808080", ctermfg = 209 })
+            vim.api.nvim_set_hl(0, "llama_hl_info", { fg = "#50fa7b", ctermfg = 119 })
+        end
     },
 
-    "stevearc/oil.nvim",
+    {
+        "stevearc/oil.nvim",
+        opts = {
+            view_options = {
+                show_hidden = true,
+            }
+        },
+        lazy = false,
+    },
 
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
@@ -45,7 +61,10 @@ local plugins = {
             fuzzy = { implementation = "prefer_rust_with_warning" },
             cmdline = { enabled = false },
         },
-        opts_extend = { "sources.default" }
+        opts_extend = { "sources.default" },
+        enabled = function()
+            return vim.env.CURSOR_TRACE_ID == nil
+        end,
     },
 
     {
