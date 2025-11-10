@@ -27,6 +27,29 @@ local plugins = {
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
 
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local builtin = require("telescope.builtin")
+            local actions = require("telescope.actions")
+
+            require("telescope").setup({
+                defaults = {
+                    mappings = {
+                        n = {
+                            ["dd"] = actions.delete_buffer,
+                        },
+                    },
+                },
+            })
+
+            vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Telescope find files" })
+            vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope string search" })
+            vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope list buffers" })
+        end,
+    },
+
     "nvim-treesitter/nvim-treesitter",
 
     {
