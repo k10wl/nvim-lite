@@ -41,12 +41,13 @@ local plugins = {
                             ["dd"] = actions.delete_buffer,
                         },
                     },
+                    layout_config = { preview_width = 0.6 }
                 },
             })
 
-            vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Telescope find files" })
-            vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope string search" })
-            vim.keymap.set("n", "<leader>ls", builtin.buffers, { desc = "Telescope list buffers" })
+            vim.keymap.set("n", "<leader>lf", builtin.find_files, { desc = "Telescope find files" })
+            vim.keymap.set("n", "<leader>ls", builtin.live_grep, { desc = "Telescope string search" })
+            vim.keymap.set("n", "<leader>lb", builtin.buffers, { desc = "Telescope list buffers" })
         end,
     },
 

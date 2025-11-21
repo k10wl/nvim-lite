@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local servers = {
-    lua_ls = {}, -- makes sure that the lua language server is installed
+    lua_ls = {},
 }
 
 require("mason").setup()
