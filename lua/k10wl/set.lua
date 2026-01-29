@@ -44,3 +44,5 @@ vim.opt.list = true
 vim.cmd("highlight NonText guifg=bg")
 
 vim.cmd("let g:ftplugin_sql_omni_key = '<C-j>'")
+
+vim.cmd("tnoremap <C-Space> <C-\\><C-N>")

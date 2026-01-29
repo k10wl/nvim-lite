@@ -4,8 +4,6 @@
 brew install ripgrep fd
 ```
 
-[llama.vim setup](https://github.com/ggml-org/llama.vim)
-
 ## Keymaps
 
 ### search (telescope.nvim)
@@ -27,14 +25,6 @@ brew install ripgrep fd
 | Key | Action |
 |-----|--------|
 | `<leader>f` | Format buffer |
-
-### ai completion (llama.vim)
-| Key | Action |
-|-----|--------|
-| `<C-f>` | Trigger |
-| `<Tab>` | Accept full |
-| `<C-e>` | Accept line |
-| `<C-j>` | Accept word |
 
 ### version control (gitsigns)
 | Key | Action |
