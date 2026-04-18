@@ -9,10 +9,10 @@ brew install ripgrep fd
 ### search (telescope.nvim)
 | Key | Action |
 |-----|--------|
-| `<leader>pf` | Find files |
-| `<leader>ps` | Grep |
-| `<leader>ls` | Buffers |
-| `dd` | Delete buffer |
+| `<leader>lf` | Find files |
+| `<leader>ls` | Grep |
+| `<leader>lb` | Buffers |
+| `dd` | Delete buffer (in picker) |
 
 ### language support (nvim-lspconfig)
 | Key | Action |

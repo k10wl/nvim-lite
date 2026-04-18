@@ -85,3 +85,16 @@ require("mason-lspconfig").setup {
         end,
     },
 }
+
+vim.lsp.config("arduino_language_server", {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", vim.fn.expand("~/Library/Arduino15/arduino-cli.yaml"),
+        "-fqbn", "arduino:avr:uno",
+        "-cli", "arduino-cli",
+        "-clangd", "clangd",
+    },
+    filetypes = { "arduino" },
+    root_markers = { "*.ino", ".git" },
+})
+vim.lsp.enable("arduino_language_server")
