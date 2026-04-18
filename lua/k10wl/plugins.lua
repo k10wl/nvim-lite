@@ -1,13 +1,13 @@
 local plugins = {
-    {
-        "stevearc/oil.nvim",
-        opts = {
-            view_options = {
-                show_hidden = true,
-            }
-        },
-        lazy = false,
-    },
+    -- {
+    --     "stevearc/oil.nvim",
+    --     opts = {
+    --         view_options = {
+    --             show_hidden = true,
+    --         }
+    --     },
+    --     lazy = false,
+    -- },
 
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
@@ -90,6 +90,7 @@ local plugins = {
             },
         },
     },
+
 }
 
 return plugins
